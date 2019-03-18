@@ -1,0 +1,28 @@
+{% extends 'back/main.html' %}
+
+{% block title %}
+    首页-博客后台管理系统
+{% endblock %}
+
+
+{% block content %}
+{{ super() }}
+<section class="rt_wrap content mCustomScrollbar">
+    <div class="rt_content" style="margin: 0 50px; font-size: 16px">
+        <h1 style="color:red;font-size:20px;font-weight:bold;text-align:center;">
+            个人博客管理后台
+        </h1>
+        <p>这是一个PC端的博客后台管理系统，并没有对移动端做适配，所以在移动端上不具备很好的视觉效果。</p>
+        <br/>
+        <p>博客后台管理系统采用flask + Python3.7.0开发，存储数据库为关系型数据库Mysql和非关系型数据库Redis。</p>
+        <br/>
+        <p>博客后台只具有两大块：管理员模块和文章模块，管理员是对后台进行管理的人员，因为这是一个个人博客，
+            所以对管理员并没有做权限分配；文章模块分为文章类型管理和文章管理，这两个分类都只具备简单的添加和删除功能，
+            个人觉得修改功能在这个地方的意义并不大。</p>
+    </div>
+</section>
+{% endblock %}
+
+
+
+

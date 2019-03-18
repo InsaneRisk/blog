@@ -1,0 +1,60 @@
+{% extends 'back/main.html' %}
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<section class="rt_wrap content mCustomScrollbar">
+<div class="rt_content">
+<div class="page_title">
+<h2 class="fl">会员列表</h2>
+<!--<a href="javascript:" class="fr top_rt_btn add_icon">添加新会员</a>-->
+</div>
+<!--<section class="mtb">-->
+<!--<select class="select">-->
+<!--<option>会员等级</option>-->
+<!--<option>普通会员</option>-->
+<!--<option>高级会员</option>-->
+<!--</select>-->
+<!--<input type="text" class="textbox textbox_225" placeholder="输入会员号/手机/电子邮件查询..."/>-->
+<!--<input type="button" value="查询" class="group_btn"/>-->
+<!--</section>-->
+<table class="table">
+<tr>
+<th>Id</th>
+<th>用户名</th>
+<th>注册时间</th>
+<th>状态</th>
+<th>操作</th>
+</tr>
+{% for user in users %}
+<tr>
+<td class="center">{{ user.id }}</td>
+<td class="center">{{ user.u_name }}</td>
+<td class="center">{{ user.c_time }}</td>
+<td class="center">{{ user.status }}</td>
+<td class="center">
+<!--<a href="javscript:;" title="编辑" class="link_icon">&#101;</a>-->
+<a href="/back/label_user/{{ user.id }}/" title="删除" class="link_icon">&#100;</a>
+</td>
+</tr>
+{% endfor %}
+</table>
+<aside class="paging">
+{% if id != 1 %}
+    <a href="/back/user_list/{{ id - 1}}/" >上一页</a>
+{% else %}
+    <a href="javascript:" style="background-color: #999;" >上一页</a>
+
+{% endif %}
+<a>{{ id }}/{{ pages }}</a>
+{% if id != pages %}
+    <a href="/back/user_list/{{ id + 1}}/">下一页</a>
+{% else %}
+    <a href="javascript:" style="background-color: #999;" >下一页</a>
+{% endif %}
+</aside>
+</div>
+</section>
+{% endblock %}

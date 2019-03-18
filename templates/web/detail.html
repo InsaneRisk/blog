@@ -1,0 +1,32 @@
+{% extends 'web/main.html' %}
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<main class="r_box">
+    <div class="about">
+        <h3>{{ art.art_name }}</h3>
+        <p>{{ art.content | safe }}</p>
+        <div style="height: 35px; line-height: 35px;">
+            <p style="float: left">上一篇:
+                {% if art1 %}
+                <a style="line-height: 35px; color: #ff5600;" href="/web/show_detail/{{ art1['id'] }}/">{{ art1['art_name' ]}}</a>
+                {% else %}
+                <a href="javascript:" style="color: #ff5600">无</a>
+                {% endif%}
+            </p>
+            <p style="float: right">下一篇:
+                {% if art2 %}
+                <a style="line-height: 35px; color: #ff5600;" href="/web/show_detail/{{ art2['id'] }}/">{{art2['art_name']}}</a>
+                {% else %}
+                <a href="javascript:" style="color: #ff5600">无</a>
+                {% endif%}
+            </p>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+

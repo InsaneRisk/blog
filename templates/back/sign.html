@@ -1,0 +1,51 @@
+
+{% extends 'back/base.html' %}
+
+{% block js %}
+<!--<script type="text/javascript" src="url_for('static', fliename='js/')"></script>-->
+<script src="/static/back/js/verificationNumbers.js"></script>
+<script src="/static/back/js/Particleground.js"></script>
+{# <script src="{{ url_for('static', filename='back/js/verificationNumbers.js)}}"></script> #}
+{# <script src="{{ url_for('static', filename='back/js/Particleground.js)}}"></script>#}
+<script>
+$(document).ready(function() {
+  //粒子背景特效
+  $('body').particleground({
+    dotColor: '#5cbdaa',
+    lineColor: '#5cbdaa'
+  });
+});
+</script>
+{% endblock %}
+
+{% block css %}
+<!--<link rel="stylesheet" type="text/css" href="/static/back/css/style.css" />-->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='back/css/style.css')}}" />
+<style>
+body{height:100%;background:#16a085;overflow:hidden;}
+canvas{z-index:-1;position:absolute;}
+</style>
+{% endblock %}
+
+{% block content %}
+<form action="" method="post">
+    <dl class="admin_login">
+        <dt>
+            <strong>博客后台管理系统</strong>
+            <em>Management System</em>
+        </dt>
+        <dd class="user_icon">
+            <input type="text" name="username" placeholder="账号" class="login_txtbx"/>
+        </dd>
+        <dd class="pwd_icon">
+            <input type="password" name="password" placeholder="密码" class="login_txtbx"/>
+        </dd>
+{% endblock %}
+{% block footer %}
+        <dd>
+            <p>&copy; 2015-2016 DeathGhost 版权所有</p>
+            <p></p>
+        </dd>
+    </dl>
+</form>
+{% endblock %}

@@ -1,0 +1,34 @@
+
+{% extends 'back/main.html' %}
+
+{% block title %}
+    文章分类-博客后台管理系统
+{% endblock %}
+{% block content %}
+{{ super() }}
+<section class="rt_wrap mCustomScrollbar">
+
+    <div class="rt_content">
+        <div class="page_title">
+            <h2 class="fl">文章分类</h2>
+            <a class="fr top_rt_btn" href="/back/cat_list/">返回分类列表</a>
+        </div>
+        <form action="" method="post" enctype="multipart/form-data">
+            <input type='hidden' name='csrfmiddlewaretoken' value='etyOfxyfqllVlf0tMSkvPkrzgjEdjgNSAYyZQgk8ujWGh7FWKTRMZqKthbnAIpGr' />
+            <section>
+                <ul class="ulColumn2">
+                    <li>
+                        <span class="item_name" style="width:120px;">分类名称：</span>
+                        <input type="text" placeholder="" name="cattype"/>
+                    </li>
+                    {{ erorr }}
+                    <li>
+                        <span class="item_name" style="width:120px;"></span>
+                        <input type="submit" class="link_btn"/>
+                    </li>
+                </ul>
+            </section>
+        </form>
+    </div>
+</section>
+{% endblock %}

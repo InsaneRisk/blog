@@ -1,0 +1,40 @@
+{% extends 'back/main.html' %}
+
+{% block title %}
+    文章分类-博客后台管理系统
+{% endblock %}
+{% block content %}
+{{ super() }}
+
+<section class="rt_wrap content mCustomScrollbar">
+    <div class="rt_content">
+        <div class="page_title">
+            <h2 class="fl">文章类型列表</h2>
+            <a href="/back/cat_type/" class="fr top_rt_btn add_icon">新增文章分类</a>
+        </div>
+        <table class="table">
+            <tr>
+                <th>类型</th>
+                <th>操作</th>
+            </tr>
+            {% for cat in cats %}
+            <tr>
+                <td class="center">
+                    {{cat.cat_name}}
+                </td>
+                <td class="center">
+                    <a href="/back/del_type/{{ cat.id }}/" title="删除" class="link_icon">&#101;</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td class="center" colspan="2" style="color: red">
+                    还没有文章类型，快去添加吧!
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</section>
+
+{% endblock %}

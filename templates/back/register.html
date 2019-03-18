@@ -1,0 +1,19 @@
+
+{% extends 'back/sign.html' %}
+
+{% block content %}
+
+{{ super() }}
+        <dd class="pwd_icon">
+            <input type="password" name="password2" placeholder="确认密码" class="login_txtbx"/>
+        </dd>
+        <dd>
+            <input style="width: 100%;" type="submit" value="注册" class="submit_btn submit_btn1"/>
+
+        </dd>
+        <div style="font-size: 12px;display: flex;justify-content: space-between; height: 20px">
+            <p style="color: red; font-size: 14px">{{ erorr }}</p>
+            <p>已拥有账号，去 <a style="color: blue" href="/back/login/">登录</a></p>
+        </div>
+
+{% endblock %}

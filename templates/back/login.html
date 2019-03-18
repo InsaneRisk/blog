@@ -1,0 +1,14 @@
+
+{% extends 'back/sign.html' %}
+
+{% block content %}
+
+{{ super() }}
+        <dd>
+            <input type="submit" value="登录" class="submit_btn"/>
+        </dd>
+        <div style="font-size: 12px;display: flex;justify-content: space-between; height: 20px">
+            <p style="color: #ff0000; font-size: 14px">{{ erorr }}</p>
+            <p>还没有账号，去<a href="/back/register/" target="_self" class="sign">注册</a></p>
+        </div>
+{% endblock %}

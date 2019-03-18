@@ -1,0 +1,84 @@
+
+{% extends 'back/main.html' %}
+
+{% block title %}
+    文章分类-博客后台管理系统
+{% endblock %}
+
+
+{% block js %}
+{{ super() }}
+<script charset="utf-8" src="/static/back/kindeditor/kindeditor-all.js"></script>
+<script charset="utf-8" src="/static/back/kindeditor/lang/zh-CN.js"></script>
+<script>
+        KindEditor.ready(function(K) {
+                window.editor = K.create('#editor_id');
+        });
+</script>
+{% endblock %}
+
+{% block css %}
+{{ super() }}
+ <!--ke-container-default-->
+<style>
+   .ke-container{
+       float: left;
+   }
+   .ke-edit{
+       position: relative;
+       z-index: 200;
+   }
+    .clear{
+        clear: both;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+<section class="rt_wrap mCustomScrollbar">
+    {{ erorr }}
+    <div class="rt_content">
+        <div class="page_title">
+            <h2 class="fl">添加文章</h2>
+            <a class="fr top_rt_btn" href="{{ url_for('first.art_list', id=1)}}">返回文章列表</a>
+        </div>
+        <form action="" method="post" enctype="multipart/form-data">
+            <input type='hidden' name='csrfmiddlewaretoken' value='q3tTrBuDcMhfvSS9x2u0yQAyRbboSQuyMyt42kgwgKS0rKxCv31hIWTsS3ULhZn7' />
+            <section>
+                <ul class="ulColumn2">
+                    <li>
+                        <span class="item_name" style="width:120px;">文章标题：</span>
+                        <input type="text" name="name" value="" class="textbox textbox_295" placeholder="商品名称..."/>
+                    </li>
+                    <li>
+                        <span class="item_name" style="width:120px;">文章描述：</span>
+                        <input type="text" name="sketch" value=""  class="textbox" placeholder="商品货号..."/>
+                        
+                    </li>
+                    <li>
+                        <span class="item_name" style="width:120px;">分类：</span>
+                        <select name="category" class="select">
+                            {% for cat in cats %}
+                                <option value="{{ cat.id }}">{{ cat.cat_name }}</option>
+                            {% endfor %}
+                        </select>
+
+                    </li>
+                    <li>
+                        <span class="item_name" style="width: 120px;float: left; margin-right: 4px;">文章内容：</span>
+                        <textarea name="content" id="editor_id" placeholder="" style="width:700px;height:300px;"></textarea>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <span class="item_name" style="width:120px;"></span>
+                        <input type="submit" class="link_btn" >
+                    </li>
+                </ul>
+            </section>
+        </form>
+    </div>
+</section>
+
+{% endblock %}
